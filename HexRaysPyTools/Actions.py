@@ -55,7 +55,7 @@ class TypeLibrary:
     def enable_library_ordinals(library_num):
         idaname = "ida64" if Const.EA64 else "ida"
         if sys.platform == "win32":
-            dll = ctypes.windll[idaname + ".wll"]
+            dll = ctypes.windll[idaname + ".dll"]
         elif sys.platform == "linux2":
             dll = ctypes.cdll["lib" + idaname + ".so"]
         elif sys.platform == "darwin":
