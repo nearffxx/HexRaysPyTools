@@ -258,7 +258,10 @@ class GetStructureBySize(idaapi.action_handler_t):
             hx_view.refresh_view(True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -309,7 +312,10 @@ class ShallowScanVariable(idaapi.action_handler_t):
         scanner.clear()
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -365,7 +371,10 @@ class DeepScanVariable(idaapi.action_handler_t):
         scanner.clear()
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -419,7 +428,10 @@ class DeepScanReturn(idaapi.action_handler_t):
         DeepSearchVisitor.clear()
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -504,7 +516,10 @@ class RecognizeShape(idaapi.action_handler_t):
             hx_view.refresh_view(True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -605,7 +620,10 @@ class CreateNewField(idaapi.action_handler_t):
         hx_view.refresh_view(True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -925,9 +943,14 @@ class RecastItemLeft(idaapi.action_handler_t):
                         hx_view.refresh_view(True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
+
+
 
 
 class RecastItemRight(RecastItemLeft):
@@ -1012,7 +1035,10 @@ class RenameOther(idaapi.action_handler_t):
             hx_view.rename_lvar(lvar, name, True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
 
@@ -1060,9 +1086,14 @@ class RenameInside(idaapi.action_handler_t):
             hx_view.refresh_view(True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
+
+
 
 
 class RenameOutside(idaapi.action_handler_t):
@@ -1103,9 +1134,14 @@ class RenameOutside(idaapi.action_handler_t):
             hx_view.rename_lvar(lvar, name, True)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
+
+
 
 
 class SwapThenElse(idaapi.action_handler_t):
@@ -1138,6 +1174,10 @@ class SwapThenElse(idaapi.action_handler_t):
             InversionInfo(hx_view.cfunc.entry_ea).switch_inverted(insn.ea)
 
     def update(self, ctx):
-        if ctx.form_title[0:10] == "Pseudocode":
+        try:
+            if ctx.form_title[0:10] == "Pseudocode":
+                return idaapi.AST_ENABLE_FOR_FORM
+        except AttributeError:
             return idaapi.AST_ENABLE_FOR_FORM
         return idaapi.AST_DISABLE_FOR_FORM
+
